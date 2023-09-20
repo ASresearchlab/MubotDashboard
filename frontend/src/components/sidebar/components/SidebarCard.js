@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import logoWhite from "assets/img/layout/logoWhite.png";
 import React from "react";
+import { RiFontFamily } from "react-icons/ri";
 
 export default function SidebarDocs() {
   const bgColor = "linear-gradient(135deg, #868CFF 0%, #4318FF 100%)";
@@ -19,15 +20,16 @@ export default function SidebarDocs() {
     <Flex
       justify='center'
       direction='column'
-      align='center'
+      //align='center'
       // bg={bgColor}
       borderRadius='30px'
       position='relative'
       marginTop={-59}
+      paddingLeft={6}
+      paddingBottom={10}
+      // margin={30}
     >
-      <Flex
-
-      >
+      <Flex>
         <Tooltip label="Aegean Solutions">
           <Avatar
             _hover={{ cursor: 'pointer' }}
@@ -37,8 +39,11 @@ export default function SidebarDocs() {
             size="sm"
             w="40px"
             h="40px"
+            
           />
+          
         </Tooltip>
+        <Text style={{paddingLeft:'15px', fontFamily:'DM Sans',color: "#8F9BBA"}} >aegean1234 {"\n"}info@aegeansolutions.com</Text>
       </Flex>
       {/* <Flex
         direction='column'

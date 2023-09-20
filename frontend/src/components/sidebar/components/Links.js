@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 // chakra imports
 import { Box, Flex, HStack, Text, useColorModeValue } from "@chakra-ui/react";
-
+import Sizedbox from 'components/Sizedbox';
 export function SidebarLinks(props) {
   //   Chakra color mode
   let location = useLocation();
@@ -83,7 +83,8 @@ export function SidebarLinks(props) {
                           ? "bold"
                           : "normal"
                       }>
-                      {/* {route.name} Titloi dipla ap tis eikones*/}
+                      {/*  Titloi dipla ap tis eikones*/}
+                      {route.name}
                     </Text>
                   </Flex>
                   <Box
@@ -124,6 +125,13 @@ export function SidebarLinks(props) {
             )}
           </NavLink>
         );
+      }
+      else if (route.layout === "2") {
+        return (
+          
+          <Sizedbox height={300}/>
+          
+        )
       }
     });
   };

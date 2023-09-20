@@ -1,18 +1,23 @@
 /*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
+                         _____                                                   
+  /  _  \   ____   ____   ____ _____    ____               
+ /  /_\  \_/ __ \ / ___\_/ __ \\__  \  /    \              
+/    |    \  ___// /_/  >  ___/ / __ \|   |  \             
+\____|__  /\___  >___  / \___  >____  /___|  /             
+        \/     \/_____/      \/     \/     \/              
+  _________      .__          __  .__                      
+ /   _____/ ____ |  |  __ ___/  |_|__| ____   ____   ______
+ \_____  \ /  _ \|  | |  |  \   __\  |/  _ \ /    \ /  ___/
+ /        (  <_> )  |_|  |  /|  | |  (  <_> )   |  \\___ \ 
+/_______  /\____/|____/____/ |__| |__|\____/|___|  /____  >                                                                                                                                                                                                                                                                                                                 
 =========================================================
-* Horizon UI - v1.1.0
+* Aegean Solutions - v1.1.0
 =========================================================
 
 * Product Page: https://www.horizon-ui.com/
 * Copyright 2023 Horizon UI (https://www.horizon-ui.com/)
 
-* Designed and Coded by Simmmple
+* Designed and Coded by Marios Kaldellis
 
 =========================================================
 
@@ -21,6 +26,7 @@
 */
 
 // Chakra imports
+import Sizedbox from 'components/Sizedbox';
 import {
   Avatar,
   Box,
@@ -30,7 +36,8 @@ import {
   Select,
   SimpleGrid,
   useColorModeValue,
-  Progress
+  Progress,
+  Button
 } from "@chakra-ui/react";
 // Assets
 import Usa from "assets/img/dashboards/usa.png";
@@ -45,6 +52,7 @@ import {
   MdBarChart,
   MdFileCopy,
   MdOutlinePerson4,
+  MdAdd
 } from "react-icons/md";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
@@ -70,7 +78,7 @@ export default function UserReports() {
         columns={{ base: 1, md: 2, lg: 3, "2xl": 6 }}
         gap='20px'
         mb='20px'>
-        <MiniStatistics
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -83,15 +91,15 @@ export default function UserReports() {
           }
           name='Earnings'
           value='$350.4'
-        />
+        /> */}
         {/* <Progress
-                          variant='table'
-                          colorScheme='brandScheme'
-                          h='8px'
-                          w='108px'
-                         value={30}
-                        /> */}
-        <MiniStatistics
+          variant='table'
+          colorScheme='brandScheme'
+          h='8px'
+          w='108px'
+          value={30}
+        /> */}
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -104,12 +112,17 @@ export default function UserReports() {
           }
           name='Spend this month'
           value='$642.39'
-        />
+        /> */}
         {/* Panw panw */}
-        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 1' /*value='$574.34'*/ >
+        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 1' value='30.4' />
+        <Sizedbox width={1}/>
+        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 2' value='60.8' />
+        <Sizedbox width={1}/>
+        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 3' value='90' />
+         {/* <Sizedbox width={0.2}/> 
+        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Total Chatbots' value='3' /> */}
 
-        </MiniStatistics>
-        <MiniStatistics
+        {/* <MiniStatistics
           endContent={
             <Flex me='-16px' mt='10px'>
               <FormLabel htmlFor='balance'>
@@ -129,8 +142,8 @@ export default function UserReports() {
           }
           name='Your balance'
           value='$1,000'
-        />
-        <MiniStatistics
+        /> */}
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -141,8 +154,8 @@ export default function UserReports() {
           }
           name='New Tasks'
           value='154'
-        />
-        <MiniStatistics
+        /> */}
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -155,15 +168,17 @@ export default function UserReports() {
           }
           name='Total Chatbots'
           value='3'
-        />
+          growth='s'
+        /> */}
       </SimpleGrid>
 
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+
+      {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
         <TotalSpent />
         <WeeklyRevenue />
       </SimpleGrid>
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-        {/* <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> */}
+         <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} /> 
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
           <DailyTraffic />
           <PieCard />
@@ -174,11 +189,43 @@ export default function UserReports() {
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
           <Tasks />
           <MiniCalendar h='100%' minW='100%' selectRange={false} />
-        </SimpleGrid> */}
-      </SimpleGrid>       
+        </SimpleGrid>
+      </SimpleGrid> */}
+      <Flex justifyContent="center" alignItems="center" h="100%">
+        <Button
+          style={{
+            padding: '15px',
+            backgroundColor: '#20639b',
+            color: 'white',
+          }}
+        >
+          <Icon w='32px' h='32px' as={MdAdd} color={"white"} />Create a Chatbot
+        </Button>
+      </Flex>
+      <SimpleGrid padding={5} columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+        <TotalSpent />
+        <WeeklyRevenue />
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+        <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+          <DailyTraffic />
+          <PieCard />
+        </SimpleGrid>
+      </SimpleGrid>
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+        <ComplexTable
+          columnsData={columnsDataComplex}
+          tableData={tableDataComplex}
+        />
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+          <Tasks />
+          <MiniCalendar h='100%' minW='100%' selectRange={false} />
+        </SimpleGrid>
+      </SimpleGrid>
     </Box>
   );
 }

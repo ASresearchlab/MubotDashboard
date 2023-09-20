@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 // chakra imports
 import {
   Box,
@@ -12,6 +11,7 @@ import {
   useDisclosure,
   DrawerContent,
   DrawerCloseButton,
+  Button
 } from "@chakra-ui/react";
 import Content from "components/sidebar/components/Content";
 import {
@@ -27,7 +27,10 @@ import { IoMenuOutline } from "react-icons/io5";
 
 function Sidebar(props) {
   const { routes } = props;
-
+  const [isFull, setSmall] = useState('true');
+  const toggleWidth = () => {
+    setSmall((prevIsFull) => !prevIsFull); // Toggle isFull value
+  };
   let variantChange = "0.2s linear";
   let shadow = useColorModeValue(
     "14px 17px 40px 4px rgba(112, 144, 176, 0.08)",
@@ -40,10 +43,11 @@ function Sidebar(props) {
   // SIDEBAR
   return (
     <Box display={{ sm: "none", xl: "block" }} w="100%" position='fixed' minH='100%'>
+      <Button onClick={toggleWidth}>Test</Button>
       <Box
         bg={sidebarBg}
         transition={variantChange}
-        w='100px'
+        w={isFull ? "300px" : "100px"}
         h='100vh'
         m={sidebarMargins}
         minH='100%'
@@ -56,6 +60,7 @@ function Sidebar(props) {
           renderView={renderView}>
           <Content routes={routes} />
         </Scrollbars>
+
       </Box>
     </Box>
   );
@@ -92,14 +97,14 @@ export function SidebarResponsive(props) {
         placement={document.documentElement.dir === "rtl" ? "right" : "left"}
         finalFocusRef={btnRef}>
         <DrawerOverlay />
-        <DrawerContent w='100px' maxW='100px' bg={sidebarBackgroundColor}>
+        <DrawerContent w='250px' maxW='250px' bg={sidebarBackgroundColor}>
           <DrawerCloseButton
             zIndex='3'
             onClose={onClose}
             _focus={{ boxShadow: "none" }}
             _hover={{ boxShadow: "none" }}
           />
-          <DrawerBody maxW='100px' px='0rem' pb='0'>
+          <DrawerBody maxW='250px' px='0rem' pb='0'>
             <Scrollbars
               autoHide
               renderTrackVertical={renderTrack}
