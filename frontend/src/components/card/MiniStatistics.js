@@ -10,6 +10,7 @@ import {
   Progress
 
 } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 // Custom components
 import Card from "components/card/Card.js";
 // Custom icons
@@ -19,7 +20,7 @@ import {
 } from "react-icons/md";
 import { Icon } from "@chakra-ui/react";
 export default function Default(props) {
-  const { startContent, endContent, name, growth, image, value } = props;
+  const { startContent, endContent, name, growth, image, value, link } = props;
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
 
@@ -53,7 +54,10 @@ export default function Default(props) {
           </StatNumber>
           {growth ? (
             <Flex align='center'>
-              <Icon w='32px' h='32px' as={image} />
+              {/* <Icon w='32px' h='32px' as={image} /> */}
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <img src={image} alt="icon" width="60px" height="60px" />
+              </a>
               <StatLabel
                 lineHeight='100%'
                 paddingLeft={10}

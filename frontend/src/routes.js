@@ -19,6 +19,7 @@ import {
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
+import HelpCenter from "views/admin/help_center";
 import Profile from "views/admin/profile";
 import DataTables from "views/admin/dataTables";
 import RTL from "views/admin/rtl";
@@ -39,7 +40,7 @@ const routes = [
   {
     name: "Small Talk",
     layout: "/admin",
-    path: "/nft-marketplace",
+    path: "/small-talk",
     icon: (
       <Icon
         as={MdOutlineForum}
@@ -56,21 +57,21 @@ const routes = [
     layout: "/admin",
     icon: <Icon as={MdBuildCircle} width='30px' height='30px' color='inherit' />,
     path: "/data-tables",
-    component: DataTables,
+    // component: DataTables,
   },
   {
     name: "Integrations",
     layout: "/admin",
     path: "/profile",
     icon: <Icon as={MdIntegrationInstructions} width='30px' height='30px' color='inherit' />,
-    component: Profile,
+    // component: Profile,
   },
   {
     name: "Analytics",
     layout: "/admin",
     path: "/analytics",
     icon: <Icon as={MdFilterAlt} width='30px' height='30px' color='inherit' />,
-    component: Profile,
+    // component: Profile,
   },
   {
     name: "",
@@ -83,21 +84,21 @@ const routes = [
     layout: "/admin",
     path: "/notifications",
     icon: <Icon as={MdNotificationsNone} width='30px' height='30px' color='inherit' /*marginTop={300}*/ />,
-    component: RTL,
+    // component: RTL,
   },
   {
     name: "Settings",
     layout: "/admin",
     path: "/settings",
     icon: <Icon as={MdSettings} width='30px' height='30px' color='inherit' />,
-    component: RTL,
+    // component: RTL,
   },
   {
     name: "Help Center",
     layout: "/admin",
     path: "/help_center",
     icon: <Icon as={MdContactSupport} width='30px' height='30px' color='inherit' />,
-    component: RTL,
+    component: HelpCenter,
   },
 ];
 

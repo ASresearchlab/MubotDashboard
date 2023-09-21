@@ -43,7 +43,7 @@ function Sidebar(props) {
   // SIDEBAR
   return (
     <Box display={{ sm: "none", xl: "block" }} w="100%" position='fixed' minH='100%'>
-      <Button onClick={toggleWidth}>Test</Button>
+      {/* <Button onClick={toggleWidth}>Test</Button> */}
       <Box
         bg={sidebarBg}
         transition={variantChange}
@@ -123,7 +123,7 @@ export function SidebarResponsive(props) {
 Sidebar.propTypes = {
   logoText: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object),
-  variant: PropTypes.string,
+  variant: PropTypes.string
 };
 
 export default Sidebar;

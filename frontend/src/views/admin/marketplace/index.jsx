@@ -1,18 +1,23 @@
 /*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || | 
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___|
-                                                                                                                                                                                                                                                                                                                                       
+                         _____                                                   
+  /  _  \   ____   ____   ____ _____    ____               
+ /  /_\  \_/ __ \ / ___\_/ __ \\__  \  /    \              
+/    |    \  ___// /_/  >  ___/ / __ \|   |  \             
+\____|__  /\___  >___  / \___  >____  /___|  /             
+        \/     \/_____/      \/     \/     \/              
+  _________      .__          __  .__                      
+ /   _____/ ____ |  |  __ ___/  |_|__| ____   ____   ______
+ \_____  \ /  _ \|  | |  |  \   __\  |/  _ \ /    \ /  ___/
+ /        (  <_> )  |_|  |  /|  | |  (  <_> )   |  \\___ \ 
+/_______  /\____/|____/____/ |__| |__|\____/|___|  /____  >                                                                                                                                                                                                                                                                                                                 
 =========================================================
-* Horizon UI - v1.1.0
+* Aegean Solutions - v1.1.0
 =========================================================
 
 * Product Page: https://www.horizon-ui.com/
 * Copyright 2023 Horizon UI (https://www.horizon-ui.com/)
 
-* Designed and Coded by Simmmple
+* Designed and Coded by Marios Kaldellis
 
 =========================================================
 
@@ -32,14 +37,20 @@ import {
   Text,
   useColorModeValue,
   SimpleGrid,
+  Icon
 } from "@chakra-ui/react";
-
+import {
+  MdCreateNewFolder
+} from "react-icons/md";
+import { HSeparator } from "components/separator/Separator";
+import Divider from 'components/Divider';
 // Custom components
 import Banner from "views/admin/marketplace/components/Banner";
 import TableTopCreators from "views/admin/marketplace/components/TableTopCreators";
 import HistoryItem from "views/admin/marketplace/components/HistoryItem";
 import NFT from "components/card/NFT";
 import Card from "components/card/Card.js";
+import Form from 'components/forms';
 
 // Assets
 import Nft1 from "assets/img/nfts/Nft1.png";
@@ -54,6 +65,7 @@ import Avatar3 from "assets/img/avatars/avatar3.png";
 import Avatar4 from "assets/img/avatars/avatar4.png";
 import tableDataTopCreators from "views/admin/marketplace/variables/tableDataTopCreators.json";
 import { tableColumnsTopCreators } from "views/admin/marketplace/variables/tableColumnsTopCreators";
+import Sizedbox from '../../../components/Sizedbox';
 
 export default function Marketplace() {
   // Chakra Color Mode
@@ -62,17 +74,21 @@ export default function Marketplace() {
   return (
     <Box pt={{ base: "180px", md: "80px", xl: "80px" }}>
       {/* Main Fields */}
+      <HSeparator />
+      <Sizedbox height={100} />
       <Grid
         mb='20px'
         gridTemplateColumns={{ xl: "repeat(3, 1fr)", "2xl": "1fr 0.46fr" }}
         gap={{ base: "20px", xl: "20px" }}
         display={{ base: "block", xl: "grid" }}>
+        {/* <Divider /> */}
+
         <Flex
           flexDirection='column'
           gridArea={{ xl: "1 / 1 / 2 / 3", "2xl": "1 / 1 / 2 / 2" }}>
-          <Banner />
+          {/* <Banner /> */}
           <Flex direction='column'>
-            <Flex
+            {/* <Flex
               mt='45px'
               mb='20px'
               justifyContent='space-between'
@@ -111,9 +127,10 @@ export default function Marketplace() {
                   Sports
                 </Link>
               </Flex>
-            </Flex>
-            <SimpleGrid columns={{ base: 1, md: 3 }} gap='20px'>
-              <NFT
+            </Flex> */}
+
+            <SimpleGrid columns={{ base: 1, md: 1 }} gap='5px'>
+              {/* <NFT
                 name='Abstract Colors'
                 author='By Esthera Jackson'
                 bidders={[
@@ -129,8 +146,20 @@ export default function Marketplace() {
                 image={Nft1}
                 currentbid='0.91 ETH'
                 download='#'
-              />
-              <NFT
+              /> */}
+
+              {/* <HSeparator /> */}
+              <Flex align="center">
+                <Text fontFamily={'DM Sans'} color={'#20639b'} paddingRight={2}>Files</Text>
+                <Button width={1} height={5} backgroundColor='transparent'>
+                  <Icon w='20px' h='20px' as={MdCreateNewFolder} color={'#20639b'} ml={2} />
+                </Button>
+              </Flex>
+              <HSeparator style={{ color: 'red' }} w='100px' />
+              <Flex justifyContent="center" alignItems="center" h="100%">
+                <Form></Form>
+              </Flex>
+              {/* <NFT
                 name='ETH AI Brain'
                 author='By Nick Wilson'
                 bidders={[
@@ -146,8 +175,8 @@ export default function Marketplace() {
                 image={Nft2}
                 currentbid='0.91 ETH'
                 download='#'
-              />
-              <NFT
+              /> */}
+              {/* <NFT
                 name='Mesh Gradients '
                 author='By Will Smith'
                 bidders={[
@@ -163,9 +192,9 @@ export default function Marketplace() {
                 image={Nft3}
                 currentbid='0.91 ETH'
                 download='#'
-              />
+              /> */}
             </SimpleGrid>
-            <Text
+            {/* <Text
               mt='45px'
               mb='36px'
               color={textColor}
@@ -228,11 +257,11 @@ export default function Marketplace() {
                 image={Nft6}
                 currentbid='0.91 ETH'
                 download='#'
-              />
-            </SimpleGrid>
+              /> 
+            </SimpleGrid>*/}
           </Flex>
         </Flex>
-        <Flex
+        {/* <Flex
           flexDirection='column'
           gridArea={{ xl: "1 / 3 / 2 / 4", "2xl": "1 / 2 / 2 / 3" }}>
           <Card px='0px' mb='20px'>
@@ -297,7 +326,7 @@ export default function Marketplace() {
               price='0.91 ETH'
             />
           </Card>
-        </Flex>
+        </Flex> */}
       </Grid>
       {/* Delete Product */}
     </Box>

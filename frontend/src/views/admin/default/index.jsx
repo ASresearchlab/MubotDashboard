@@ -61,6 +61,7 @@ import PieCard from "views/admin/default/components/PieCard";
 import Tasks from "views/admin/default/components/Tasks";
 import TotalSpent from "views/admin/default/components/TotalSpent";
 import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
+import { Images } from '../../../components/configs';
 import {
   columnsDataCheck,
   columnsDataComplex,
@@ -114,11 +115,11 @@ export default function UserReports() {
           value='$642.39'
         /> */}
         {/* Panw panw */}
-        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 1' value='30.4' />
+        <MiniStatistics growth='+23%' image={Images.ArtefactBot} name='Artefact Bot' value='30.4' link='https://memobot.eu/' />
         <Sizedbox width={1}/>
-        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 2' value='60.8' />
+        <MiniStatistics growth='+23%' image={Images.KazantzakisBot} name='Kazantzakis Bot' value='60.8'  link='https://memobot.eu/' />
         <Sizedbox width={1}/>
-        <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Chatbot 3' value='90' />
+        <MiniStatistics growth='+23%' image={Images.MuseumBot} name='Museum Bot' value='90'  link='https://www.museumbot.eu/'/>
          {/* <Sizedbox width={0.2}/> 
         <MiniStatistics growth='+23%' image={MdOutlinePerson4} name='Total Chatbots' value='3' /> */}
 
@@ -205,18 +206,20 @@ export default function UserReports() {
           <Icon w='32px' h='32px' as={MdAdd} color={"white"} />Create a Chatbot
         </Button>
       </Flex>
+      
       <SimpleGrid padding={5} columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+      <MiniStatistics growth='+23%' image={Images.ServiceBot} name='Service Bot' value='90'  link='https://www.museumbot.eu/'/>
         <TotalSpent />
-        <WeeklyRevenue />
+        {/* <WeeklyRevenue /> */}
       </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+      {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
         <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
           <DailyTraffic />
           <PieCard />
         </SimpleGrid>
-      </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+      </SimpleGrid> */}
+      {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
@@ -225,7 +228,7 @@ export default function UserReports() {
           <Tasks />
           <MiniCalendar h='100%' minW='100%' selectRange={false} />
         </SimpleGrid>
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Box>
   );
 }
