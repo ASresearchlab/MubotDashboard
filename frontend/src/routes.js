@@ -31,7 +31,7 @@ import { Avatar } from "@chakra-ui/react";
 
 const routes = [
   {
-    name: "Main Dashboard",
+    name: "Dashboard",
     layout: "/admin",
     path: "/default",
     icon: <Icon as={MdHome} width='30px' height='30px' color='inherit' />,

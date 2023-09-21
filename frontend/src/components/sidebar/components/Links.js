@@ -4,6 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 // chakra imports
 import { Box, Flex, HStack, Text, useColorModeValue } from "@chakra-ui/react";
 import Sizedbox from 'components/Sizedbox';
+import Sidebar from "../Sidebar";
 export function SidebarLinks(props) {
   //   Chakra color mode
   let location = useLocation();
@@ -17,7 +18,8 @@ export function SidebarLinks(props) {
   let brandColor = useColorModeValue("brand.500", "brand.400");
 
   const { routes } = props;
-  //const { isSmall } = props;
+  const receivedData = props.isFull;
+  console.log(receivedData);
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
@@ -129,9 +131,9 @@ export function SidebarLinks(props) {
       }
       else if (route.layout === "2") {
         return (
-          
-          <Sizedbox height={300}/>
-          
+
+          <Sizedbox height={300} />
+
         )
       }
     });

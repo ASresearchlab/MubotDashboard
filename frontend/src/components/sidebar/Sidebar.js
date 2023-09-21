@@ -21,7 +21,9 @@ import {
 } from "components/scrollbar/Scrollbar";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import PropTypes from "prop-types";
-
+import SidebarLink from ".//components/Links";
+import Brand from "components/sidebar/components/Brand";
+import SidebarCard from "components/sidebar/components/SidebarCard";
 // Assets
 import { IoMenuOutline } from "react-icons/io5";
 
@@ -43,7 +45,8 @@ function Sidebar(props) {
   // SIDEBAR
   return (
     <Box display={{ sm: "none", xl: "block" }} w="100%" position='fixed' minH='100%'>
-      {/* <Button onClick={toggleWidth}>Test</Button> */}
+      <Button onClick={toggleWidth}>Test</Button>
+
       <Box
         bg={sidebarBg}
         transition={variantChange}
@@ -58,7 +61,15 @@ function Sidebar(props) {
           renderTrackVertical={renderTrack}
           renderThumbVertical={renderThumb}
           renderView={renderView}>
-          <Content routes={routes} />
+          {/* <Content routes={routes} /> */}
+          <Brand />
+          <SidebarLink routes={routes} isFull={isFull} />
+          <Box
+            mt='60px'
+            mb='40px'
+            borderRadius='30px'>
+            <SidebarCard />
+          </Box>
         </Scrollbars>
 
       </Box>
