@@ -19,7 +19,7 @@ export function SidebarLinks(props) {
 
   const { routes } = props;
   const receivedData = props.isFull;
-  console.log(receivedData);
+  // console.log(receivedData);
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
@@ -87,7 +87,8 @@ export function SidebarLinks(props) {
                           : "normal"
                       }>
                       {/*  Titloi dipla ap tis eikones*/}
-                      {route.name}
+                      {receivedData ? route.name : null}
+
                     </Text>
                   </Flex>
                   <Box

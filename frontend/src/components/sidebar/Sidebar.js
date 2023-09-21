@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Sizedbox from 'components/Sizedbox';
 // chakra imports
 import {
   Box,
@@ -14,6 +15,7 @@ import {
   Button
 } from "@chakra-ui/react";
 import Content from "components/sidebar/components/Content";
+import { MdMenu } from 'react-icons/md';
 import {
   renderThumb,
   renderTrack,
@@ -45,8 +47,6 @@ function Sidebar(props) {
   // SIDEBAR
   return (
     <Box display={{ sm: "none", xl: "block" }} w="100%" position='fixed' minH='100%'>
-      <Button onClick={toggleWidth}>Test</Button>
-
       <Box
         bg={sidebarBg}
         transition={variantChange}
@@ -63,12 +63,14 @@ function Sidebar(props) {
           renderView={renderView}>
           {/* <Content routes={routes} /> */}
           <Brand />
+          <Button float='right' w="30px" h="30px" backgroundColor='transparent' onClick={toggleWidth}><Icon mt="6px" w='20px' h='20px' as={MdMenu}  /></Button>
+          <Sizedbox height={40} />
           <SidebarLink routes={routes} isFull={isFull} />
           <Box
             mt='60px'
             mb='40px'
             borderRadius='30px'>
-            <SidebarCard />
+            <SidebarCard isFull={isFull} />
           </Box>
         </Scrollbars>
 
@@ -88,7 +90,10 @@ export function SidebarResponsive(props) {
   const { routes } = props;
   // let isWindows = navigator.platform.startsWith("Win");
   //  BRAND
-
+  const [isFull, setSmall] = useState('true');
+  const toggleWidth = () => {
+    setSmall((prevIsFull) => !prevIsFull); // Toggle isFull value
+  };
   return (
     <Flex display={{ sm: "flex", xl: "none" }} alignItems='center'>
       <Flex ref={btnRef} w='max-content' h='max-content' onClick={onOpen}>
@@ -108,7 +113,7 @@ export function SidebarResponsive(props) {
         placement={document.documentElement.dir === "rtl" ? "right" : "left"}
         finalFocusRef={btnRef}>
         <DrawerOverlay />
-        <DrawerContent w='250px' maxW='250px' bg={sidebarBackgroundColor}>
+        <DrawerContent w='250px' maxW={isFull ? "200px" : "50px"} bg={sidebarBackgroundColor}>
           <DrawerCloseButton
             zIndex='3'
             onClose={onClose}
@@ -121,7 +126,15 @@ export function SidebarResponsive(props) {
               renderTrackVertical={renderTrack}
               renderThumbVertical={renderThumb}
               renderView={renderView}>
-              <Content routes={routes} />
+              <Brand />
+              <Button onClick={toggleWidth}>Test</Button>
+              <SidebarLink routes={routes} isFull={isFull} />
+              <Box
+                mt='60px'
+                mb='40px'
+                borderRadius='30px'>
+                <SidebarCard isFull={isFull} />
+              </Box>
             </Scrollbars>
           </DrawerBody>
         </DrawerContent>

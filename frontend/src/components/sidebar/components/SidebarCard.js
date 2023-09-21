@@ -12,9 +12,11 @@ import logoWhite from "assets/img/layout/logoWhite.png";
 import React from "react";
 import { RiFontFamily } from "react-icons/ri";
 
-export default function SidebarDocs() {
+export default function SidebarDocs(props) {
   const bgColor = "linear-gradient(135deg, #868CFF 0%, #4318FF 100%)";
   const borderColor = useColorModeValue("white", "navy.800");
+  const receivedData = props.isFull;
+  // console.log(receivedData);
 
   return (
     <Flex
@@ -25,8 +27,8 @@ export default function SidebarDocs() {
       borderRadius='30px'
       position='relative'
       marginTop={-59}
-      paddingLeft={6}
-      paddingBottom={10}
+      paddingLeft={1}
+      paddingBottom={30}
       // margin={30}
     >
       <Flex>
@@ -43,7 +45,7 @@ export default function SidebarDocs() {
           />
           
         </Tooltip>
-        <Text style={{paddingLeft:'15px', fontFamily:'DM Sans',color: "#8F9BBA"}} >aegean1234 {"\n"}info@aegeansolutions.com</Text>
+        <Text style={{paddingLeft:'15px', fontFamily:'DM Sans',color: "#8F9BBA"}} >{receivedData ? 'aegean1234 \ninfo@aegeansolutions.com' : null}</Text>
       </Flex>
       {/* <Flex
         direction='column'
